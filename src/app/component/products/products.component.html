@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-12">
+        <div class="form-group">
+            <input class="form-control" [formControl]="titleFilter" type="text">
+        </div>
+    </div>
+</div>
+<div class="col-md-12" *ngIf="!products.length" style="text-align: center">
+    无法获取商品列表数据 <a href="javascript:;" (click)="getList()">重新获取</a>
+</div>
+<div (click)="toDetail(product.pId)"
+     *ngFor="let product of products | filter:{key:'title', value:keyWord}"
+     class="col-md-4 col-sm-6 col-lg-4">
+    <div class="thumbnail">
+        <img [src]="product.imgUrl || 'http://placehold.it/320x150' " alt="product">
+        <div class="caption">
+            <h4 class="pull-right">{{product.price}}</h4>
+            <h4><a href="javascript:;">{{product.title}}</a></h4>
+            <p>{{product.desc}}</p>
+        </div>
+        <div>
+            <app-stars [rating]="product.rating"></app-stars>
+        </div>
+    </div>
+</div>

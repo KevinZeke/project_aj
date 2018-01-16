@@ -1,0 +1,11 @@
+<div>
+    <h3>父组件</h3>
+    <p #p>{{title}}</p>
+    <input type="text" [formControl]="fatherControl">
+    <p>{{sonInfo}}</p>
+    <app-test-son #child (toFather)="fromSon($event)" [fromFather]="toSon">
+        <div class="slot1">father信息插槽</div>
+        <div class="slot2">father信息插槽2</div>
+    </app-test-son>
+    <app-test-sson [brotherInfo]="sonInfo"></app-test-sson>
+</div>

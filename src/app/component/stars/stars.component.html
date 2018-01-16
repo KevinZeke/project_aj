@@ -1,0 +1,7 @@
+<p>
+  <span *ngFor="let star of stars;let i = index;"
+        class="glyphicon glyphicon-star"
+        (mouseover)="changeRating(i+1)"
+        [class.glyphicon-star-empty]="i >= rating"></span>
+    <span>{{rating}}星</span>
+</p>

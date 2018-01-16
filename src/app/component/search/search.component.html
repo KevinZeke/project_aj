@@ -1,0 +1,65 @@
+<form [formGroup]="searchForm" (submit)="onSubmit()" name="searchForm" role="form">
+    <div class="form-group">
+        <label for="productTitle">商品名称：</label>
+        <input #productTitleEl
+               type="text"
+               formControlName="productTitle"
+               placeholder="商品名称"
+               id="productTitle"
+               name="productTitle"
+               class="form-control">
+        <div *ngIf="this.searchForm.hasError('required',['productTitle']) && !searchForm.get('productTitle').untouched">
+            <app-form-warning
+                    [message]="formErrorHandle.required()"
+                    [direction]=" 'bottom' "
+                    [target]="productTitleEl">
+            </app-form-warning>
+        </div>
+        <div *ngIf="searchForm.hasError('minlength',['productTitle']) && !searchForm.get('productTitle').untouched">
+            <app-form-warning
+                    [message]="formErrorHandle.minlength(searchForm.getError('minlength',['productTitle']))"
+                    [direction]=" 'bottom' "
+                    [target]="productTitleEl">
+            </app-form-warning>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productPrice">商品价格：</label>
+        <input #productPriceEl
+               type="number"
+               formControlName="productPrice"
+               placeholder="商品价格"
+               id="productPrice"
+               name="productPrice"
+               class="form-control">
+        <div *ngIf="searchForm.hasError('min',['productPrice'])">
+            <app-form-warning
+                    [message]="formErrorHandle.min(searchForm.getError('min',['productPrice']))"
+                    [direction]=" 'bottom' "
+                    [target]="productPriceEl">
+            </app-form-warning>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="productCategory">商品品种：</label>
+        <select #productCategoryEl
+                name="productCategory"
+                formControlName="productCategory"
+                id="productCategory"
+                class="form-control">
+            <option *ngFor="let category of categories;" value="{{category.name}}">
+                {{category.name}}
+            </option>
+        </select>
+        <div *ngIf="searchForm.hasError('required',['productCategory'])">
+            <app-form-warning
+                    [message]="formErrorHandle.required()"
+                    [direction]=" 'bottom' "
+                    [target]="productCategoryEl">
+            </app-form-warning>
+        </div>
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary btn-block" type="submit">搜索</button>
+    </div>
+</form>

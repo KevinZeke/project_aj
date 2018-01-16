@@ -1,0 +1,15 @@
+<form #myForm="ngForm" action="/nonext" (ngSubmit)="submit()" method="get">
+    <div>用户名：<input #username="ngModel" ngModel name="username" type="text"></div>
+    <div>手机：<input ngModel name="tel" type="number"></div>
+    <div>邮箱：<input ngModel name="email" type="email"></div>
+    <div ngModelGroup="passwordGroup">
+        <div>密码：<input ngModel name="pwd" type="password"></div>
+        <div>确认密码：<input ngModel name="pwdConfirm" type="password"></div>
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+</form>
+<div>
+    {{ myForm.value | json }}
+</div>

@@ -1,0 +1,48 @@
+<app-navbar></app-navbar>
+<div class="container" style="display: block;">
+    <div class="row" #row>
+        <div class="col-md-3">
+            <app-search></app-search>
+        </div>
+        <div class="col-md-9">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
+</div>
+<app-footer></app-footer>
+<app-modal></app-modal>
+<!--以下为测试-->
+<!--以下为测试-->
+<!--以下为测试-->
+<!--以下为测试-->
+<!--以下为测试-->
+<!--以下为测试-->
+<!--<app-test-http></app-test-http>-->
+<!--<div class="container">-->
+    <!--<app-test-template-form class="col-md-6"></app-test-template-form>-->
+    <!--<app-test-reactive-form class="col-md-6"></app-test-reactive-form>-->
+<!--</div>-->
+<!--<app-test-observe></app-test-observe>-->
+<!--<div style="display: none">-->
+    <!--<app-test-father></app-test-father>-->
+    <!--<input type="text" [(ngModel)]="user.age">-->
+    <!--<app-test-life [age]="user.age"></app-test-life>-->
+    <!--<app-test-life-2></app-test-life-2>-->
+<!--</div>-->
+<!--<div class="forTest" style="display: none;">-->
+    <!--<div style="display: block;text-align: center;font-size: 1.5rem" class="col-md-6 test-wraper">-->
+        <!--<hr>-->
+        <!--<a [routerLink]="['/']" [queryParams]="{ id:1, name:'test' }">主页</a>-->
+        <!--<a [routerLink]="['/testProduct',12]">商品</a>-->
+        <!--<button (click)="testRouteJumpToHome()">to主页</button>-->
+        <!--<button (click)="testRouteJumpToProduct()">to商品</button>-->
+        <!--&lt;!&ndash;<router-outlet></router-outlet>&ndash;&gt;-->
+    <!--</div>-->
+    <!--<div class="col-md-6" style="display: block;">-->
+        <!--<hr>-->
+        <!--<p>路由守卫</p>-->
+        <!--<a [routerLink]="[{outlets:{guard:'can'}}]" [queryParams]="{id:2}">can</a>-->
+        <!--<a [routerLink]="[{outlets:{guard:'de'}}]" [queryParams]="{id:3}">de</a>-->
+        <!--&lt;!&ndash;<router-outlet name="test-guard"></router-outlet>&ndash;&gt;-->
+    <!--</div>-->
+<!--</div>-->

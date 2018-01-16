@@ -1,0 +1,42 @@
+<div class="thumbnail">
+    <img src="http://placehold.it/800x320" alt="head">
+    <div>
+        <h4 class="pull-right">{{product.price}}元</h4>
+        <h4>{{product.title}}</h4>
+        <h4>{{product.desc}}</h4>
+    </div>
+    <div>
+        <p class="pull-right">共有{{product.comments.length}}条评论</p>
+        <p>
+            <app-stars [rating]="product.rating"></app-stars>
+        </p>
+    </div>
+</div>
+
+<div class="well">
+    <div class="row">
+        <div class="form-group" [class.add-comment]="toggleComment">
+            <app-stars [(rating)]="commentRating" [control]="true"></app-stars>
+            <textarea cols="30" rows="5" class="form-control" [(ngModel)]="commentContent">
+            </textarea>
+        </div>
+        <button class="btn btn-success"
+                (click)="toggleAddComment()"
+                [style.display]="toggleComment?'block':'none'">添加评论</button>
+        <button class="btn btn-primary"
+                (click)="addComment()"
+                [class.add-comment]="toggleComment">发送评论</button>
+    </div>
+    <div *ngIf="!product.comments.length" class="row">
+        还未有评论。
+    </div>
+    <div class="row" *ngFor="let comment of product.comments">
+        <hr>
+        <div class="col-md-12">
+            <app-stars [rating]="comment.rating"></app-stars>
+            <span>{{comment.userName}}</span>
+            <span class="pull-right">{{comment.date}}</span>
+            <p>{{comment.content}}</p>
+        </div>
+    </div>
+</div>

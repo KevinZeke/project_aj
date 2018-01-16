@@ -1,0 +1,32 @@
+<form [formGroup]="myForm" (submit)="onSubmit()" method="get">
+    <div>用户名：<input formControlName="username" name="username" type="text"></div>
+    <div>手机：<input formControlName="tel" name="tel" type="number"></div>
+    <div>邮箱：<input formControlName="email" name="email" type="email"></div>
+    <div [hidden]=" !myForm.hasError('required',['email']) ">
+        邮箱不能为空
+    </div>
+    <div [hidden]=" !myForm.hasError('legalEmail',['email']) ">
+        邮箱不存在
+    </div>
+    <div [hidden]=" !myForm.hasError('emailError',['email']) ">
+        {{myForm.getError('emailError',['email'])?.describe}}
+    </div>
+    <div formGroupName="password">
+        <div>密码：<input formControlName="pwd" name="pwd" type="password"></div>
+        <div>确认密码：<input formControlName="pconfirm" name="pwdConfirm" type="password"></div>
+    </div>
+    <div>
+        <ul formArrayName="hobbies">
+            <li *ngFor="let control of myForm.get('hobbies').controls; let i = index">
+                <input type="text" formControlName="{{i}}">
+            </li>
+        </ul>
+        <div><button>添加兴趣</button></div>
+    </div>
+    <div>
+        <button type="submit">submit</button>
+    </div>
+    <div>
+        {{myForm.value | json}}
+    </div>
+</form>

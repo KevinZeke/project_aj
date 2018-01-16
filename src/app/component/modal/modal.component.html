@@ -1,0 +1,7 @@
+<div class="alertModal" (click)="modalService.hide()" [@fadeIn]="modalService.state">
+  <div class="modalBox" (click)="$event.stopPropagation();">
+    <p class="title">{{modalService.title}}</p>
+    <hr>
+    {{modalService.message}}
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div [ngClass]="className"
+     [ngStyle]="{display:'block',top:position.top+'px',left:position.left+'px'}"
+>
+    <div class="arrow"></div>
+    <h3 class="popover-title">{{title}}</h3>
+    <div class="popover-content">
+        <p>
+            {{message}}
+        </p>
+    </div>
+</div>
